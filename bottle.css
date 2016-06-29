@@ -1,0 +1,99 @@
+body{height:400px;}
+.salvage{
+        width:166px;
+        height:71px;
+        position:relative;
+        left:1050px;
+        top:450px;
+        z-index:2;
+}
+
+.rotate{
+        -ms-transform:rotate(-90deg);
+        -moz-transform:rotate(-90deg);
+        -webkit-transform:rotate(-90deg);
+        -o-transform:rotate(-90deg);
+}
+.prize{
+        display:none;
+        position:absolute;
+        z-index:1;
+        left:700px;
+        top:130px;
+}
+.beach{
+        background:url(./image/bg1e9c5d.png) repeat-x;
+        position:absolute;
+        width:100%;
+        height:100%;
+        z-index:-2;
+        background-color:#ffe6af;
+}
+.sea{
+        background-color:#00d9f2;
+        width:800px;
+        height:140px;
+        left:450px;
+        position:absolute;
+        top:260px;
+}
+.left{
+        background:url(./image/bg_sand1e9c5d.png) no-repeat;
+        position:absolute;
+        top:304px;
+        z-index:1;
+        width:800px;
+        height:193px;
+}
+.water{
+        width:179px;
+        height:251px;
+        top:180px;
+        left:710px;
+        position:absolute;
+}
+.net{
+        background:url(./image/icon1e9c5d.png) -5px -150px;
+        width:120px;
+        display:inline-block;
+        height:60px;
+}
+.tools{
+       top: 500px;
+left: 600px;
+        position:absolute;
+}
+.land{
+        background:url(./image/skin_island31e9c5d.png) no-repeat;
+        width:327px;
+        height:105px;
+        position:absolute;
+        left:1000px;
+        top:100px;
+}
+.sun{
+        background:url(./image/flash_sunshine1e9c5d.gif) no-repeat;
+        width:170px;
+        height:178px;
+        position:absolute;
+        left:100px;
+        z-index:5;
+}
+.crab{
+        background:url(./image/skin_crab1e9c5d.png) no-repeat;
+        width:217px;
+        height:54px;
+        position:absolute;
+        left:100px;
+        top:400px;
+        z-index:5;
+}
+.water{
+        background:url(./image/salvage_water1e9c5d.png) no-repeat;
+        width:179px;
+        height:251px;
+        position:absolute;
+        left:700px;
+        top:150px;
+        z-index:-1;
+}
