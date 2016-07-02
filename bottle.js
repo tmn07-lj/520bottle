@@ -5,22 +5,33 @@ var isAction=false;
 function reset() {
 	
 	if(isAction){
-		alert("正在打捞,请勿重复");
+		swal("正在打捞,请勿重复");
 		return false;
 	}
-	isAction=true;
-	$salveage.css({
-		left : "1050px",
-		top : "450px",
-		width:"166px",
-		height:"71px"
+	$.post("./lib/tf_bottle.php",
+		function(data){
+			if(data == '1')
+			{
+				isAction=true;
+				$salveage.css({
+					left : "1050px",
+					top : "450px",
+					width:"166px",
+					height:"71px"
+				});
+				$(".prize").css({
+					"z-index" : 1,
+					"display" : "none"
+				});
+				
+				track.init($('.salvage'),850,450,300);
+			}
+			else
+			{
+				swal("今天已经打捞过了~明天再来吧");
+			}
 	});
-	$(".prize").css({
-		"z-index" : 1,
-		"display" : "none"
-	});
-	
-	track.init($('.salvage'),850,450,300);
+
 }
 //抛出网兜 旋转加放大的过程
 function salveage() {
@@ -72,15 +83,24 @@ function showPrize() {
 		"z-index" : 1
 	});
 	isAction=false;
+	setTimeout(
+		$.post("./lib/get_bottle.php",
+			function(data){
+				if(data == '0')
+				{
+					swal("没了的个说");
+				}
+				else
+				{
+					swal(data);
+				}
+			})
+		, 1000);
 }
 
 function getPrize() {
-	prize[0] = "salvage_0.png";
-	prize[1] = 'salvage_1.png';
-	prize[2] = 'salvage_2.png';
-	prize[3] = 'salvage_3.png';
-	var num = Math.round(Math.random() * 6);
-	$("#prize").attr("src", "./image/salvage_" + num + ".png");
+	var num = Math.round(Math.random() * 5);
+	$("#prize").attr("src", "./image/salvage" + num + ".png");
 }
 
 var track={
@@ -135,3 +155,35 @@ var track={
  track.interval= setInterval(track.jump,10);
 }
 }
+
+
+
+
+var start = function(){
+	swal({
+		title: "Nice to meet you~",
+		text: '输入他给你的口令吧~',
+		type: 'input',
+		inputType: "password",
+		closeOnConfirm: false,
+		animation: "slide-from-top",
+		inputPlaceholder: "Write something",
+	},
+	function(inputValue){
+	    $.post("./lib/login.php",{
+	        "password": inputValue
+	    	}
+	    	,function(data){
+	    		if (data == '0') {
+	    			swal.showInputError("密码错误~么么哒");
+	    		}
+	    		else
+	    		{
+	    			swal("Nice!", '开始你的漂流瓶吧~么么哒~'+data , "success");
+	    		}
+	    		
+	    	}
+	    )
+
+	});
+};
