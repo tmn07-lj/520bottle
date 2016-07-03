@@ -2,9 +2,9 @@
 if (!session_id()) session_start();
 	require_once './sql_init.php';
 
-$user_id = "1";
+// $user_id = "1";
 
-// $user_id = $_SESSION['user_id'];
+$user_id = $_SESSION['user_id'];
 
 $sql = "SELECT * from list WHERE readed = 0 AND user_id = ".$user_id.";";
 
