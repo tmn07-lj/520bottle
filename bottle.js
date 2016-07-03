@@ -167,7 +167,7 @@ var start = function(){
 		inputType: "password",
 		closeOnConfirm: false,
 		animation: "slide-from-top",
-		inputPlaceholder: "Write something",
+		inputPlaceholder: "(*^.^*)",
 	},
 	function(inputValue){
 	    $.post("./lib/login.php",{
